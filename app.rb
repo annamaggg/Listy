@@ -53,4 +53,19 @@ class Application < Sinatra::Base
     puts @todos
     return erb(:homepage)
   end
+
+  get '/add-todo' do 
+    return erb (:add_todo)
+  end
+
+  post '/add-todo' do 
+    puts "trying to post"
+    todo_repo = TodoRepository.new
+    todo = Todo.new
+    todo.content = params[:todo]
+    todo.account_id = session[:user_id]
+    puts todo
+    todo_repo.add_todo(todo)
+    redirect '/homepage'
+  end
 end
