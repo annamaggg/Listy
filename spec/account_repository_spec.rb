@@ -17,4 +17,10 @@ describe AccountRepository do
     expect(repo.all_accounts.length).to eq(1)
     expect(repo.all_accounts.last.username).to eq('annamag')
   end
+
+  it "returns all usernames" do
+    repo = AccountRepository.new
+    expect(repo.all_usernames.length).to eq(1)
+    expect(repo.all_usernames.last).to eq('annamag')
+  end
 end
