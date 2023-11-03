@@ -5,7 +5,7 @@ As a user, I can...
 
 # MVP
 
-- Add a todo 
+- Add a todo x
 - List a todo as complete 
 - See incomplete todos
 - See completed todos

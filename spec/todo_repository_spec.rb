@@ -15,6 +15,7 @@ describe TodoRepository do
   it "returns all todos by id" do
     repo = TodoRepository.new
     expect(repo.todos_by_account_id(1)[0].content).to eq('Buy groceries')
+    expect(repo.todos_by_account_id(1)[0].complete).to eq('f')
     expect(repo.todos_by_account_id(1)[0].account_id).to eq('1')
   end
 
@@ -22,11 +23,13 @@ describe TodoRepository do
     repo = TodoRepository.new
     todo = Todo.new
     todo.content = "Clean my room"
+    todo.complete = false
     todo.account_id = 1
     repo.add_todo(todo)
 
     todos = repo.todos_by_account_id(1)
     expect(todos.length).to eq(2)
     expect(todos[1].content).to eq('Clean my room')
+    expect(todos[1].complete).to eq('f')
   end
 end
