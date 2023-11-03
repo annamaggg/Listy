@@ -49,7 +49,7 @@ class Application < Sinatra::Base
 
   get '/homepage' do
     todo_repo = TodoRepository.new
-    @todos = todo_repo.todos_by_account_id(session[:user_id])
+    @todos = todo_repo.todos_by_account_id(session[:user_id], false)
     return erb(:homepage)
   end
 
