@@ -3,9 +3,9 @@ require_relative 'database_connection'
 
 class TodoRepository
 
-  def todos_by_account_id(id)
-    sql = 'SELECT id, content, complete, account_id FROM todos WHERE account_id = $1;'
-    results = DatabaseConnection.exec_params(sql, [id])
+  def todos_by_account_id(id, complete)
+    sql = 'SELECT id, content, complete, account_id FROM todos WHERE account_id = $1 AND complete = $2;'
+    results = DatabaseConnection.exec_params(sql, [id, complete])
       
     todos = []
     results.each do |item|

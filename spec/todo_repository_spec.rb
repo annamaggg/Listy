@@ -12,11 +12,11 @@ describe TodoRepository do
     reset_tables
   end
 
-  it "returns all todos by id" do
+  it "returns all incomplete todos by id" do
     repo = TodoRepository.new
-    expect(repo.todos_by_account_id(1)[0].content).to eq('Buy groceries')
-    expect(repo.todos_by_account_id(1)[0].complete).to eq('f')
-    expect(repo.todos_by_account_id(1)[0].account_id).to eq('1')
+    expect(repo.todos_by_account_id(1, false)[0].content).to eq('Buy groceries')
+    expect(repo.todos_by_account_id(1, false)[0].complete).to eq('f')
+    expect(repo.todos_by_account_id(1, false)[0].account_id).to eq('1')
   end
 
   it "adds a todo to the database" do 
@@ -27,7 +27,7 @@ describe TodoRepository do
     todo.account_id = 1
     repo.add_todo(todo)
 
-    todos = repo.todos_by_account_id(1)
+    todos = repo.todos_by_account_id(1, false)
     expect(todos.length).to eq(2)
     expect(todos[1].content).to eq('Clean my room')
     expect(todos[1].complete).to eq('f')
