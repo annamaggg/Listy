@@ -5,7 +5,6 @@ The SQL seed data truncates the tables in the database and inserts a sample acco
 
 ## checklist just for me 
 
-- logout function
 - mark todos as complete
 - Complete acc repo spec tests 
 - add interation tests

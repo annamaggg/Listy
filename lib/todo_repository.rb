@@ -25,4 +25,10 @@ class TodoRepository
     result = DatabaseConnection.exec_params(sql, [todo.content, todo.complete, todo.account_id])
     return result
   end
+
+  def mark_completed(id)
+    sql = 'UPDATE todos SET complete = TRUE WHERE id = $1;'
+    result = DatabaseConnection.exec_params(sql, [id])
+    return result
+  end
 end

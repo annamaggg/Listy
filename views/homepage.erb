@@ -2,15 +2,25 @@
   <head></head>
   <body>
     <h1>My todo list</h1>
-    <%if @todos != nil%>
-      <%@todos.each do |item|%>
+    <h2>Incomplete</h2>
+    <%if @incomplete_todos != nil%>
+      <%@incomplete_todos.each do |item|%>
+        <form action="/mark-completed" method="POST">
+          <input type="hidden" name="id" value="<%=item.id%>">
+          <input type="submit" name="submit" value="">
+        </form>
         <p><%=item.content%></p>
-        <p><%=item.complete%></p>
       <%end%>
     <%end%>
     <a href='/add-todo'>Add todo</a>
     <form action="/logout" method="POST">
-      <input type="submit" name="Submit">
+      <input type="submit" name="Submit" value="logout">
     </form>
+    <h2>Completed</h2>
+    <%if @complete_todos != nil%>
+      <%@complete_todos.each do |item|%>
+        <p><%=item.content%></p>
+      <%end%>
+    <%end%>
   </body>
 </html>

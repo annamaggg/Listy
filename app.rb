@@ -54,7 +54,8 @@ class Application < Sinatra::Base
 
   get '/homepage' do
     todo_repo = TodoRepository.new
-    @todos = todo_repo.todos_by_account_id(session[:user_id], false)
+    @incomplete_todos = todo_repo.todos_by_account_id(session[:user_id], false)
+    @complete_todos = todo_repo.todos_by_account_id(session[:user_id], true)
     return erb(:homepage)
   end
 
@@ -69,6 +70,12 @@ class Application < Sinatra::Base
     todo.complete = false
     todo.account_id = session[:user_id]
     todo_repo.add_todo(todo)
+    redirect '/homepage'
+  end
+
+  post '/mark-completed' do
+    todo_repo = TodoRepository.new
+    todo_repo.mark_completed(params[:id])
     redirect '/homepage'
   end
 end
