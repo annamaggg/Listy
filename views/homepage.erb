@@ -1,5 +1,16 @@
 <html>
-  <head></head>
+  <head>
+    <style>
+      body {
+        background-color: white;
+      }
+      <%if @mode_status == "day"%> 
+        body {
+          background-color: grey;
+        }
+      <%end%>
+    </style>
+  </head>
   <body>
     <h1>My todo list</h1>
     <h2>Incomplete</h2>
@@ -15,6 +26,9 @@
     <a href='/add-todo'>Add todo</a>
     <form action="/logout" method="POST">
       <input type="submit" name="Submit" value="logout">
+    </form>
+    <form action="/colour-mode" method="POST">
+      <input type="submit" name="Submit" value="<%= @mode_status %> mode">
     </form>
     <h2>Completed</h2>
     <%if @complete_todos != nil%>

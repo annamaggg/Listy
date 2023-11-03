@@ -13,6 +13,10 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  def colour_mode_toggle
+    session[:colour_mode] = (session[:colour_mode] == "day" ? "night" : "day")
+  end
+
   get '/' do
     return erb(:index)
   end
@@ -56,6 +60,7 @@ class Application < Sinatra::Base
     todo_repo = TodoRepository.new
     @incomplete_todos = todo_repo.todos_by_account_id(session[:user_id], false)
     @complete_todos = todo_repo.todos_by_account_id(session[:user_id], true)
+    @mode_status = session[:colour_mode]
     return erb(:homepage)
   end
 
@@ -76,6 +81,11 @@ class Application < Sinatra::Base
   post '/mark-completed' do
     todo_repo = TodoRepository.new
     todo_repo.mark_completed(params[:id])
+    redirect '/homepage'
+  end
+
+  post '/colour-mode' do
+    colour_mode_toggle
     redirect '/homepage'
   end
 end

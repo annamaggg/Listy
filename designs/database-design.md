@@ -5,16 +5,18 @@ As a user, I can...
 
 # MVP
 
-- Add a todo x
+- Add a todo 
 - List a todo as complete 
-- See incomplete todos x
-- See completed todos x
+- See incomplete todos 
+- See completed todos 
 
-# Additional
+# Additional goals
 
+- view and edit todos
+- Add a deadline
 - Add tags to categorise my todos
-- Add a deadline 
 - Add sublist of todos on each todo
+- day/night mode
 
 ```
 
