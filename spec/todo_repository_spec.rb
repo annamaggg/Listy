@@ -40,4 +40,13 @@ describe TodoRepository do
     expect(todo.id).to eq("1")
     expect(todo.content).to eq('Buy groceries')
   end
+
+  it "updates todo" do 
+    repo = TodoRepository.new
+    repo.update_todo_content("Buy groceries now", "1")
+    todo = repo.todo_by_id(1)
+
+    expect(todo.id).to eq("1")
+    expect(todo.content).to eq('Buy groceries now')
+  end
 end

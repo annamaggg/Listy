@@ -90,6 +90,11 @@ class Application < Sinatra::Base
     return erb(:todo)
   end
 
+  post '/update-todo' do 
+    todo_repo = TodoRepository.new
+    todo_repo.update_todo_content(params[:content], params[:id])
+    redirect '/homepage'
+  end
 
   post '/colour-mode' do
     colour_mode_toggle

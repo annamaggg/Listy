@@ -23,7 +23,7 @@ class TodoRepository
   def todo_by_id(id)
     sql = 'SELECT id, content, complete, account_id FROM todos WHERE id = $1;'
     result = DatabaseConnection.exec_params(sql, [id])
-
+    puts result 
     todo = Todo.new
     todo.id = result[0]['id']
     todo.content = result[0]['content']
@@ -41,6 +41,12 @@ class TodoRepository
   def mark_completed(id)
     sql = 'UPDATE todos SET complete = TRUE WHERE id = $1;'
     result = DatabaseConnection.exec_params(sql, [id])
+    return result
+  end
+
+  def update_todo_content(content, id)
+    sql = 'UPDATE todos SET content = $1 WHERE id = $2;'
+    result = DatabaseConnection.exec_params(sql, [content, id])
     return result
   end
 end
