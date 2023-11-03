@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 
-DatabaseConnection.connect('music_library')
+DatabaseConnection.connect('listy-db')
 
 class Application < Sinatra::Base
   configure :development do
