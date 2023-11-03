@@ -1,0 +1,11 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Hi</h1
+    <%if @todos != nil%>
+      <%@todos.each do |item|%>
+        <p><%=item.content%></p>
+      <%end%>
+    <%end%>
+  </body>
+</html>
