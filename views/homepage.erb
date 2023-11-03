@@ -5,6 +5,7 @@
     <%if @todos != nil%>
       <%@todos.each do |item|%>
         <p><%=item.content%></p>
+        <p><%=item.complete%></p>
       <%end%>
     <%end%>
     <a href='/add-todo'>Add todo</a>

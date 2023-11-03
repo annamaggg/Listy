@@ -50,7 +50,10 @@ class Application < Sinatra::Base
   get '/homepage' do
     todo_repo = TodoRepository.new
     @todos = todo_repo.todos_by_account_id(session[:user_id])
-    puts @todos
+    puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    puts @todos[0].content
+    puts @todos[0].complete
+    puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     return erb(:homepage)
   end
 
@@ -62,6 +65,7 @@ class Application < Sinatra::Base
     todo_repo = TodoRepository.new
     todo = Todo.new
     todo.content = params[:todo]
+    todo.complete = false
     todo.account_id = session[:user_id]
     todo_repo.add_todo(todo)
     redirect '/homepage'
