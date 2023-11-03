@@ -14,8 +14,8 @@ As a user, I can...
 
 - view and edit todos
 - Add a deadline
+- Add description on each todo
 - Add tags to categorise my todos
-- Add sublist of todos on each todo
 - day/night mode
 
 ```

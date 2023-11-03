@@ -32,4 +32,12 @@ describe TodoRepository do
     expect(todos[1].content).to eq('Clean my room')
     expect(todos[1].complete).to eq('f')
   end
+
+  it "finds todo by todo id" do
+    repo = TodoRepository.new
+    todo = repo.todo_by_id(1)
+
+    expect(todo.id).to eq("1")
+    expect(todo.content).to eq('Buy groceries')
+  end
 end

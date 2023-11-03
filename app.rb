@@ -84,6 +84,13 @@ class Application < Sinatra::Base
     redirect '/homepage'
   end
 
+  post '/todo' do 
+    todo_repo = TodoRepository.new
+    @todo = todo_repo.todo_by_id(params[:id])
+    return erb(:todo)
+  end
+
+
   post '/colour-mode' do
     colour_mode_toggle
     redirect '/homepage'
