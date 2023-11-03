@@ -47,6 +47,11 @@ class Application < Sinatra::Base
     end
   end
 
+  post '/logout' do 
+    session.clear
+    return erb(:index)
+  end
+
   get '/homepage' do
     todo_repo = TodoRepository.new
     @todos = todo_repo.todos_by_account_id(session[:user_id], false)

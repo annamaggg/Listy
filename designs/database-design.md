@@ -7,8 +7,8 @@ As a user, I can...
 
 - Add a todo x
 - List a todo as complete 
-- See incomplete todos
-- See completed todos
+- See incomplete todos x
+- See completed todos x
 
 # Additional
 
