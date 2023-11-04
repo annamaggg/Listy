@@ -71,7 +71,8 @@ class Application < Sinatra::Base
   post '/add-todo' do 
     todo_repo = TodoRepository.new
     todo = Todo.new
-    todo.content = params[:todo]
+    todo.title = params[:todo_title]
+    todo.content = params[:todo_content]
     todo.complete = false
     todo.account_id = session[:user_id]
     todo_repo.add_todo(todo)

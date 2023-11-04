@@ -23,8 +23,9 @@
           </form>
           <form action="/todo" method="POST">
             <input type="hidden" name="id" value="<%=item.id%>">
-            <input type="submit" name="submit" value="<%=item.content%>">
+            <input type="submit" name="submit" value="<%=item.title%>">
           </form>
+          <p><%=item.content%></p>
         <%end%>
       <%end%>
     </div>
@@ -38,6 +39,7 @@
     <h2>Completed</h2>
     <%if @complete_todos != nil%>
       <%@complete_todos.each do |item|%>
+        <h3><%=item.title%></h3>
         <p><%=item.content%></p>
       <%end%>
     <%end%>

@@ -8,6 +8,7 @@ CREATE TABLE accounts (
 
 CREATE TABLE todos (
   id SERIAL PRIMARY KEY,
+  title text,
   content text,
   complete boolean,
   account_id int,
@@ -19,4 +20,4 @@ CREATE TABLE todos (
 TRUNCATE TABLE accounts, todos RESTART IDENTITY;
 
 INSERT INTO accounts (username, passkey) VALUES ('annamag', 'password');
-INSERT INTO todos (content, complete, account_id) VALUES ('Buy groceries', false, (SELECT id FROM accounts WHERE username='annamag'));
+INSERT INTO todos (title, content, complete, account_id) VALUES ('Buy groceries', 'Milk, eggs, bread',false, (SELECT id FROM accounts WHERE username='annamag'));
