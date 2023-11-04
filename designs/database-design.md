@@ -22,12 +22,13 @@ As a user, I can...
 
 ## Tables design
 
-| accounts              | todos               |
-| --------------------- | ------------------  |
-| id                    | id                  |
-| username              | content             |
-| password              | account_id          |
-
+| accounts              | todos               | tags
+| --------------------- | ------------------  | ------------------
+| id                    | id                  | id
+| username              | content             | name
+| password              | account_id          | colour
+|                       |                     | account_id
+|                       |                     | todo_id 
 
 ```
 Table: accounts
@@ -60,3 +61,7 @@ CREATE TABLE todos (
     on delete cascade
 );
 ```
+
+## Tags 
+
+
