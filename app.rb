@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require_relative 'lib/database_connection'
 require_relative 'lib/account_repository'
 require_relative 'lib/todo_repository'
+require 'date'
 
 DatabaseConnection.connect('listy-db')
 
@@ -15,6 +16,10 @@ class Application < Sinatra::Base
 
   def colour_mode_toggle
     session[:colour_mode] = (session[:colour_mode] == "day" ? "night" : "day")
+  end
+
+  def get_date 
+    return Date.today 
   end
 
   get '/' do
@@ -65,6 +70,7 @@ class Application < Sinatra::Base
   end
 
   get '/add-todo' do 
+    @date = get_date 
     return erb (:add_todo)
   end
 
