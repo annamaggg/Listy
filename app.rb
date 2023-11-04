@@ -73,6 +73,7 @@ class Application < Sinatra::Base
     todo = Todo.new
     todo.title = params[:todo_title]
     todo.content = params[:todo_content]
+    todo.deadline = params[:todo_deadline]
     todo.complete = false
     todo.account_id = session[:user_id]
     todo_repo.add_todo(todo)
@@ -93,6 +94,7 @@ class Application < Sinatra::Base
 
   post '/update-todo' do 
     todo_repo = TodoRepository.new
+    todo_repo.update_todo_title(params[:title], params[:id])
     todo_repo.update_todo_content(params[:content], params[:id])
     redirect '/homepage'
   end

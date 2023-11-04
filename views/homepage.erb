@@ -26,6 +26,7 @@
             <input type="submit" name="submit" value="<%=item.title%>">
           </form>
           <p><%=item.content%></p>
+          <p><%= Date.parse(item.deadline).strftime('%d/%m/%Y') %></p>
         <%end%>
       <%end%>
     </div>

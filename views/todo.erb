@@ -6,6 +6,7 @@
     <h1>Todo</h1>
     <form action="/update-todo" method="POST">
       <input type="hidden" name="id" value="<%=@todo.id%>">
+      <input type="text" name="title" value="<%= @todo.title %>">
       <input type="text" name="content" value="<%= @todo.content %>">
       <input type="submit" name="Submit" value="Save">
     </form>
