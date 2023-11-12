@@ -1,5 +1,16 @@
 body {
-  background-color: blue;
+  background-color: rgb(35, 35, 63);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  width: 80%;
+  height: 80%;
+  background-color: rgb(88, 96, 148);
+  border: 2px solid rgb(23, 25, 84);
+  border-radius: 45px;
 }
 h1 {
   color: pink;

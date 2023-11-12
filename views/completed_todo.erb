@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="/css/<%=@mode_status%>-mode.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Listy</h1>
+      <h2>Incomplete</h2>
+      <h2>Completed</h2>
+      <%if @complete_todos != nil%>
+        <%@complete_todos.each do |item|%>
+          <h3><%=item.title%></h3>
+          <p><%=item.content%></p>
+        <%end%>
+      <%end%>
+      <form action="/logout" method="POST">
+        <input type="submit" name="Submit" value="logout">
+      </form>
+      <form action="/colour-mode" method="POST">
+        <input type="submit" name="Submit" value="toggle mode">
+      </form>
+    </div>
+  </body>
+</html>

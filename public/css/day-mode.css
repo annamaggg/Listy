@@ -12,9 +12,49 @@ body {
   border: 2px solid white;
   border-radius: 45px;
 }
-h1 {
-  color: blue;
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+}
+.col-container {
+  display: flex;
+  height: 77%;
+}
+.column1{
+  flex: 1;
+  margin-left: 40px;
+}
+.column2{
+  background-color: white;
+  flex: 4;
+  margin: 0px 40px;
+  padding: 20px;
+  border-radius: 20px;
 }
 h2 {
-  color: blue;
+  border: 2px solid rgb(191, 212, 224);
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  font-size: medium;
+  color: rgb(54,54,54);
+}
+.upcoming {
+  background-color: rgb(191, 212, 224);
+}
+.completed {
+  transition: 1s;
+}
+.completed:hover {
+  background-color: rgb(191, 212, 224);
+  cursor: pointer;
+}
+.logout-btn {
+  margin-top: 20px;
+}
+.mode-btn {
+  margin-top: 20px;
 }
