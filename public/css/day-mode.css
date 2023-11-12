@@ -1,0 +1,20 @@
+body {
+  background-color: rgb(218, 225, 228);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  width: 80%;
+  height: 80%;
+  background-color: rgb(244, 244, 244);
+  border: 2px solid white;
+  border-radius: 45px;
+}
+h1 {
+  color: blue;
+}
+h2 {
+  color: blue;
+}

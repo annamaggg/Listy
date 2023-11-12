@@ -38,6 +38,7 @@ class Application < Sinatra::Base
       if params[:passkey] == account.passkey
         session.clear
         session[:user_id] = account.id
+        session[:colour_mode] = "day"
         puts session[:user_id]
         if session[:user_id] == nil
           return "no session"
@@ -66,6 +67,7 @@ class Application < Sinatra::Base
     @incomplete_todos = todo_repo.todos_by_account_id(session[:user_id], false)
     @complete_todos = todo_repo.todos_by_account_id(session[:user_id], true)
     @mode_status = session[:colour_mode]
+    puts @mode_status
     return erb(:homepage)
   end
 
