@@ -65,10 +65,15 @@ class Application < Sinatra::Base
   get '/homepage' do
     todo_repo = TodoRepository.new
     @incomplete_todos = todo_repo.todos_by_account_id(session[:user_id], false)
-    @complete_todos = todo_repo.todos_by_account_id(session[:user_id], true)
     @mode_status = session[:colour_mode]
     puts @mode_status
     return erb(:homepage)
+  end
+
+  get '/completed' do
+    todo_repo = TodoRepository.new
+    @complete_todos = todo_repo.todos_by_account_id(session[:user_id], true)
+    return erb(:completed_todo)
   end
 
   get '/add-todo' do 

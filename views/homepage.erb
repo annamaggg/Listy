@@ -11,31 +11,33 @@
       <div class="col-container">
         <div class="column1">
           <h2 class="upcoming">Upcoming</h2>
-          <h2 class="completed">Completed</h2>
+          <a href="/completed"><h2 class="completed">Completed</h2></a>
         </div>
         <div class="column2">
           <%if @incomplete_todos != nil%>
             <%@incomplete_todos.each do |item|%>
-              <form action="/mark-completed" method="POST">
-                <input type="hidden" name="id" value="<%=item.id%>">
-                <input type="submit" name="submit" value="">
-              </form>
-              <form action="/todo" method="POST">
-                <input type="hidden" name="id" value="<%=item.id%>">
-                <input type="submit" name="submit" value="<%=item.title%>">
-              </form>
-              <p><%=item.content%></p>
-              <p><%= Date.parse(item.deadline).strftime('%d/%m/%Y') %></p>
+              <div class="todo-bar">
+                <form action="/mark-completed" method="POST">
+                  <input type="hidden" name="id" value="<%=item.id%>">
+                  <input type="submit" name="submit" value="" class="complete-btn">
+                </form>
+                <form action="/todo" method="POST">
+                  <input type="hidden" name="id" value="<%=item.id%>">
+                  <input type="submit" name="submit" value="<%=item.title%>" class="todo-title">
+                </form>
+                <p class="deadline"><%= Date.parse(item.deadline).strftime('%d/%m/%Y') %></p>
+              </div>
+              <p class="content"><%=item.content%></p>
             <%end%>
           <%end%>
         </div>
       </div>  
       <div class="top-bar">
         <form action="/logout" method="POST">
-          <input type="submit" name="Submit" value="logout" class="logout-btn">
+          <input type="submit" name="Submit" value="logout" class="logout-btn btn">
         </form>
         <form action="/colour-mode" method="POST">
-          <input type="submit" name="Submit" value="toggle mode" class="mode-btn">
+          <input type="submit" name="Submit" value="toggle mode" class="mode-btn btn">
         </form>
       </div>
     </div>

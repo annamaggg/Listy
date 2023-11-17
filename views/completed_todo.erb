@@ -1,24 +1,36 @@
 <html>
   <head>
-    <link id="stylesheet" rel="stylesheet" type="text/css" href="/css/<%=@mode_status%>-mode.css" />
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="/css/day-mode.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Listy</h1>
-      <h2>Incomplete</h2>
-      <h2>Completed</h2>
-      <%if @complete_todos != nil%>
-        <%@complete_todos.each do |item|%>
-          <h3><%=item.title%></h3>
-          <p><%=item.content%></p>
-        <%end%>
-      <%end%>
-      <form action="/logout" method="POST">
-        <input type="submit" name="Submit" value="logout">
-      </form>
-      <form action="/colour-mode" method="POST">
-        <input type="submit" name="Submit" value="toggle mode">
-      </form>
+      <div class = "top-bar">
+        <h1 class="icon">Listy</h1>
+      </div>
+      <div class="col-container">
+        <div class="column1">
+          <a href="/homepage" ><h2 class="upcoming" style="background-color: rgb(244, 244, 244);">Upcoming</h2></a>
+          <h2 class="completed" style="background-color: rgb(191, 212, 224);">Completed</h2>
+        </div>
+        <div class="column2">
+          <%if @complete_todos != nil%>
+            <%@complete_todos.each do |item|%>
+              <div class="todo-bar">
+                <h3 class="todo-title"><%=item.title%></h3>
+                <p class="content"><%=item.content%></p>
+              </div>
+            <%end%>
+          <%end%>
+        </div>
+      </div>
+      <div class="top-bar">
+        <form action="/logout" method="POST">
+          <input type="submit" name="Submit" value="logout" class="logout-btn btn">
+        </form>
+        <form action="/colour-mode" method="POST">
+          <input type="submit" name="Submit" value="toggle mode">
+        </form>
+      </div>
     </div>
   </body>
 </html>
