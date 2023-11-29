@@ -2,9 +2,7 @@
   <h1 align="center">Listy</h1>
   <p>A todo list app. This project was created to practice the basics of app design, styling and using databases.</p>
 
-  <img src="https://github.com/annamaggg/VAM_API_display/blob/main/public/Site-screenshot.png" width="861" alt="img"/>
-  <img src="https://github.com/annamaggg/VAM_API_display/blob/main/public/Site-screenshot2.png" width="861" alt="img"/>
-  <img src="https://github.com/annamaggg/VAM_API_display/blob/main/public/Site-screenshot3.png" width="861" alt="img"/>
+  <img src="https://github.com/annamaggg/Listy/blob/main/public/scrnsht.png" width="861" alt="img"/>
 </div>
 <br/>
 <br/>
