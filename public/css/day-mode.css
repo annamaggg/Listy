@@ -1,9 +1,16 @@
+@font-face {
+  font-family: 'Rockness';
+  src: url('/public/css/Rockness.ttf') format('truetype');
+}
 body {
   background-color: rgb(218, 225, 228);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+h1 {
+  font-family: 'Rockness';
 }
 form {
   margin-block-end: 0;
