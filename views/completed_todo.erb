@@ -16,8 +16,7 @@
           <%if @complete_todos != nil%>
             <%@complete_todos.each do |item|%>
               <div class="todo-bar">
-                <h3 class="todo-title"><%=item.title%></h3>
-                <p class="content"><%=item.content%></p>
+                  <h3 class="todo-title"><%=item.title%></h3>
               </div>
             <%end%>
           <%end%>
